@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header title="报班金额统计分析"></Header>
+    <Top title="报班金额统计分析"></Top>
     <div class="main">
       <div class="clear">
         <div class="left mainLeft">
@@ -64,7 +64,7 @@
 </template>
 
 <script>
-import Header from "../components/Header";
+import Top from "../components/Top";
 let echarts = require("echarts/lib/echarts");
 // 引入饼状图组件
 require("echarts/lib/chart/pie");
@@ -262,7 +262,7 @@ export default {
     }
   },
   components: {
-    Header
+    Top
   }
 };
 </script>
