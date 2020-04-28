@@ -1,27 +1,43 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
-import ClassMoney from '../views/ClassMoney'
+import ClassMoney from '../components/BaoBan/BaoBNum'
+import Header from '../views/ClassMoney'
+import Bar from '../components/Bar'
+import  WFD from '../views/WFD'
 
 Vue.use(VueRouter)
 
   const routes = [
   {
-    path: '/',
-    name: 'Home',
-    component: Home
+    path:'/',
+    component:WFD,
+    children:[
+      {
+        path:'/sel',
+        component:()=> import('../components/WFD/WFDSelect')
+      },
+      {
+        path:'',
+        redirect:'/sel'
+      },
+      {
+        path:'/manage',
+        component:()=> import('../components/WFD/WFDManage')
+      }
+    ]
   },
   {
     path:'/classMoney',
+    name:'ClassMoney',
     component:ClassMoney
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    path:'/header',
+    component:Header
+  },
+  {
+    path:'/bar',
+    component:Bar
   }
 ]
 
