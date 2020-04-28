@@ -1,15 +1,21 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 <<<<<<< HEAD
+<<<<<<< HEAD
 import ClassMoney from '../components/BaoBan/BaoBNum'
 import Header from '../views/ClassMoney'
 import Bar from '../components/Bar'
 import  WFD from '../views/WFD'
+=======
+import ClassMoney from '../views/ClassMoney'
+import cdgl from '../views/lh/kbgl.vue'
+>>>>>>> qq
 
 Vue.use(VueRouter)
 
   const routes = [
   {
+<<<<<<< HEAD
     path:'/',
     component:WFD,
     children:[
@@ -26,11 +32,16 @@ Vue.use(VueRouter)
         component:()=> import('../components/WFD/WFDManage')
       }
     ]
+=======
+    path: '/',
+	component:cdgl
+>>>>>>> qq
   },
   {
     path:'/classMoney',
     name:'ClassMoney',
     component:ClassMoney
+<<<<<<< HEAD
   },
   {
     path:'/header',
@@ -39,6 +50,8 @@ Vue.use(VueRouter)
   {
     path:'/bar',
     component:Bar
+=======
+>>>>>>> qq
   }
 =======
 import classRoter from '../views/stu.vue'

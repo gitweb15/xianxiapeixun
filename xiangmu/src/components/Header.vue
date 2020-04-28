@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <div>
     <el-row>
       <el-col :span="24" class="headerCss clear">
@@ -24,10 +25,16 @@
       </el-col>
     </el-row>
   </div>
+=======
+    <div class="header">
+        <span class="spancss"></span><a class="h6text">{{ title }}</a>
+    </div>
+>>>>>>> qq
 </template>
 
 <script>
 export default {
+<<<<<<< HEAD
   name: "Header",
   data() {
     return {
@@ -79,4 +86,31 @@ export default {
       line-height: 47px;
 }
 
+=======
+    name:'Header',
+    props:['title']
+}
+</script>
+<style scoped>
+.header{
+    padding: 10px 0;
+    text-align: left;
+    background: #f9f9f9;
+    border-bottom: #f2f2f2;
+}
+.h6text{
+    color: #999999;
+    font-size: 14px;
+    display: inline-block;
+    position: relative;
+    top: -3px
+}
+.spancss{
+    background: #1abc9c;
+    display: inline-block;
+    width: 5px;
+    height: 20px;
+    margin-right: 5px;
+}
+>>>>>>> qq
 </style>
