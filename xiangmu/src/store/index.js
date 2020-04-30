@@ -186,7 +186,8 @@ export default new Vuex.Store({
         can:'是',
         Pprice:300
       }
-    ]
+    ],
+    jiaoShiGuanLi:[]
   },
   mutations: {
   },

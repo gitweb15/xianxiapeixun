@@ -1,47 +1,51 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import  Course from '../views/Course'
+import Course from '../views/Course'
 
 
 Vue.use(VueRouter)
 
-  const routes = [
+const routes = [
   {
-    path:'/',
-    component:Course,
-    children:[
+    path: '/fb',
+    component: () => import('../components/JiaZhang/JiaZhangTab')
+  },
+  {
+    path: '/',
+    component: Course,
+    children: [
       {
-        path:'/sel',
-        component:()=> import('../components/WFD/WFDSelect')
+        path: '/sel',
+        component: () => import('../components/WFD/WFDSelect')
       },
       {
-        path:'',
-        redirect:'/sel'
+        path: '',
+        redirect: '/sel'
       },
       {
-        path:'/manage',
-        component:()=> import('../components/WFD/WFDManage')
+        path: '/manage',
+        component: () => import('../components/WFD/WFDManage')
       }
     ]
-  },{
-    path:'/Pay',
-    component:()=>import('../views/Pay'),
-    children:[
+  }, {
+    path: '/Pay',
+    component: () => import('../views/Pay'),
+    children: [
       {
-        path:'',
-        redirect:'/sel2'
+        path: '',
+        redirect: '/sel2'
       },
       {
-        path:'/sel2',
-        component:()=> import('../components/WFD/WFDManage')
+        path: '/sel2',
+        component: () => import('../components/WFD/WFDManage')
       }
     ]
   }]
 
 const router = new VueRouter({
-	mode: 'history',
-	base: process.env.BASE_URL,
-	routes
+  mode: 'history',
+  base: process.env.BASE_URL,
+  routes
 })
 
 export default router
