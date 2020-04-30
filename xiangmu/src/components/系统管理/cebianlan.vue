@@ -50,12 +50,15 @@
 			};
 		},
 		methods: {
+<<<<<<< HEAD
+=======
 			// handleEdit(index, row) {
 			// 	console.log(index, row);
 			// },
 			// handleDelete(index, row) {
 			// 	console.log(index, row);
 			// },
+>>>>>>> a42769b419eac9af012ce83bf16de44f9712d82e
 			handleOpen(key, keyPath) {
 				console.log(key, keyPath);
 			},

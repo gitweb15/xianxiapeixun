@@ -1,7 +1,11 @@
 <template>
 	<div>
 		<div>
+<<<<<<< HEAD
+			<p><span style="border: 1px solid limegreen;background: limegreen;padding-left: 5px;"></span>活动课程管理</p>
+=======
 			<p><span style="border: 1px solid limegreen;background: limegreen;"></span>活动课程管理</p>
+>>>>>>> a42769b419eac9af012ce83bf16de44f9712d82e
 		</div>
 		<el-form :inline="true" :model="formInline" class="demo-form-inline top" style="margin-left: 100px;">
 			<el-form-item label="校区" style="width: 25%;">
@@ -16,13 +20,21 @@
 				</el-select>
 			</el-form-item>
 			<el-form-item label="课程名称" style="width: 25%;">
+<<<<<<< HEAD
+				<el-select v-model="formInline.region1" placeholder="请输入内容">
+=======
 				<el-select v-model="formInline.region" placeholder="请输入内容">
+>>>>>>> a42769b419eac9af012ce83bf16de44f9712d82e
 					<el-option label="某某某" value="某某某"></el-option>
 					<el-option label="某某某" value="某某某"></el-option>
 				</el-select>
 			</el-form-item>
 			<el-form-item label="是否活动" style="width: 25%;">
+<<<<<<< HEAD
+				<el-select v-model="formInline.region2" placeholder="请选择内容">
+=======
 				<el-select v-model="formInline.region" placeholder="请选择内容">
+>>>>>>> a42769b419eac9af012ce83bf16de44f9712d82e
 					<el-option label="是" value="是"></el-option>
 					<el-option label="否" value="否"></el-option>
 				</el-select>
@@ -53,6 +65,11 @@
 			<el-table-column prop="status" label="活动价" show-overflow-tooltip>
 			</el-table-column>
 			<el-table-column prop="caozuo" label="操作" show-overflow-tooltip>
+<<<<<<< HEAD
+				<span @click="dialogFormVisible = true" style="color: blue;">设置活动价</span>
+				<!-- <span style="padding-left: 10px;color: blue;">查看</span> -->
+=======
+>>>>>>> a42769b419eac9af012ce83bf16de44f9712d82e
 			</el-table-column>
 			<!-- <el-table-column style="margin-right: 30px;" prop="caozuo1" label="" show-overflow-tooltip>
 			</el-table-column> -->
@@ -64,6 +81,22 @@
 			</el-pagination>
 		</div>
 		<el-dialog title="设置活动价格" :visible.sync="dialogFormVisible">
+<<<<<<< HEAD
+			<el-form :model="form">
+				<el-form-item label="课程原价:" :label-width="formLabelWidth">
+					1500
+				</el-form-item>
+				<el-form-item label="活动价格:" :label-width="formLabelWidth">
+					<el-input v-model="form.region" placeholder="请选择活动价格">
+					</el-input>
+					<p style="color: red;">注意：设置价格则代表参加活动</p>
+				</el-form-item>
+			</el-form>
+			<div slot="footer" class="dialog-footer">
+				<el-button @click="dialogFormVisible = false">取 消</el-button>
+				<el-button type="primary" @click="dialogFormVisible = false">保存</el-button>
+			</div>
+=======
 		  <el-form :model="form">
 		    <el-form-item label="课程原价:" :label-width="formLabelWidth">
 		      1500
@@ -78,6 +111,7 @@
 		    <el-button @click="dialogFormVisible = false">取 消</el-button>
 		    <el-button type="primary" @click="dialogFormVisible = false">保存</el-button>
 		  </div>
+>>>>>>> a42769b419eac9af012ce83bf16de44f9712d82e
 		</el-dialog>
 
 	</div>
@@ -103,7 +137,11 @@
 					price: '350',
 					study: '是',
 					status: '300',
+<<<<<<< HEAD
+					
+=======
 					caozuo: '设置活动价'
+>>>>>>> a42769b419eac9af012ce83bf16de44f9712d82e
 				}, {
 					no: 'BJKC20190405',
 					name: '初中一年级班级课程',
@@ -112,7 +150,11 @@
 					price: '350',
 					study: '否',
 					status: '',
+<<<<<<< HEAD
+					
+=======
 					caozuo: '设置活动价'
+>>>>>>> a42769b419eac9af012ce83bf16de44f9712d82e
 				}, {
 					no: 'BJKC20190405',
 					name: '初中一年级班级课程',
@@ -121,7 +163,11 @@
 					price: '350',
 					study: '是',
 					status: '300',
+<<<<<<< HEAD
+					
+=======
 					caozuo: '设置活动价'
+>>>>>>> a42769b419eac9af012ce83bf16de44f9712d82e
 				}, {
 					no: 'BJKC20190405',
 					name: '初中一年级班级课程',
@@ -130,7 +176,11 @@
 					price: '350',
 					study: '否',
 					status: '',
+<<<<<<< HEAD
+					
+=======
 					caozuo: '设置活动价'
+>>>>>>> a42769b419eac9af012ce83bf16de44f9712d82e
 				}, {
 					no: 'BJKC20190405',
 					name: '初中一年级班级课程',
@@ -139,7 +189,11 @@
 					price: '350',
 					study: '是',
 					status: '300',
+<<<<<<< HEAD
+					
+=======
 					caozuo: '设置活动价'
+>>>>>>> a42769b419eac9af012ce83bf16de44f9712d82e
 				}, {
 					no: 'BJKC20190405',
 					name: '初中一年级班级课程',
@@ -148,7 +202,11 @@
 					price: '350',
 					study: '否',
 					status: '',
+<<<<<<< HEAD
+					
+=======
 					caozuo: '设置活动价'
+>>>>>>> a42769b419eac9af012ce83bf16de44f9712d82e
 				}, {
 					no: 'BJKC20190405',
 					name: '初中一年级班级课程',
@@ -157,7 +215,11 @@
 					price: '350',
 					study: '是',
 					status: '300',
+<<<<<<< HEAD
+					
+=======
 					caozuo: '设置活动价'
+>>>>>>> a42769b419eac9af012ce83bf16de44f9712d82e
 				}, {
 					no: 'BJKC20190405',
 					name: '初中一年级班级课程',
@@ -166,7 +228,11 @@
 					price: '350',
 					study: '否',
 					status: '',
+<<<<<<< HEAD
+					
+=======
 					caozuo: '设置活动价'
+>>>>>>> a42769b419eac9af012ce83bf16de44f9712d82e
 				}, ],
 				multipleSelection: [],
 				dialogTableVisible: false,

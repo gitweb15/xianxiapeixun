@@ -11,6 +11,10 @@ const routes = [
     component: () => import('../components/Teacher/TeaManage')
   },
   {
+    path: '/hy',
+    component: () => import('../components/班级管理课程/Subject.vue')
+  },
+  {
     path: '/',
     component: Course,
     children: [
