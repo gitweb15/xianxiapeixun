@@ -1,0 +1,200 @@
+<template>
+  <div>
+    <top title="家长账号管理"></top>
+    <div class="main" style="width:100%;">
+      <div class="main-from clear" style="padding-top:10px;padding-left:10px;">
+        <el-form :inline="true" :model="formInline" class="demo-form-inline">
+          <!-- 用户来源 -->
+          <el-form-item label="用户来源" class="left">
+            <el-select v-model="formInline.region" placeholder="请选择内容">
+              <el-option label="微信小程序" value="微信小程序"></el-option>
+              <el-option label="支付宝小程序" value="微信小程序"></el-option>
+            </el-select>
+          </el-form-item>
+          <!-- 是否注册 -->
+          <el-form-item label="是否注册" class="left">
+            <el-select v-model="formInline.region" placeholder="请选择内容">
+              <el-option label="是" value="是"></el-option>
+              <el-option label="否" value="否"></el-option>
+            </el-select>
+          </el-form-item>
+          <!-- 是否消费 -->
+          <el-form-item label="校区" class="left">
+            <el-select v-model="formInline.region" placeholder="请选择内容">
+              <el-option label="是" value="是"></el-option>
+              <el-option label="否" value="否"></el-option>
+            </el-select>
+          </el-form-item>
+          <!-- 搜索 -->
+          <el-form-item class="right">
+            <el-button type="primary" @click="onSubmit">搜索</el-button>
+          </el-form-item>
+          <!-- 手机号码 -->
+          <el-form-item label="手机号码" class="right">
+            <el-input v-model="formInline.user" placeholder="请输入内容"></el-input>
+          </el-form-item>
+        </el-form>
+      </div>
+      <div class="main-tab">
+        <el-table
+          :data="wfbSelectJson.slice((currentPage-1)*pageSize,currentPage*pageSize)"
+          style="width: 100%"
+          :header-cell-style="tableHeaderColor"
+          :row-class-name="tableRowClassName"
+        >
+          <el-table-column prop="id" label="用户来源" width="200"></el-table-column>
+          <el-table-column prop="name" label="用户昵称" width="280"></el-table-column>
+          <el-table-column prop="xiaoQ" label="性别" width="150"></el-table-column>
+          <el-table-column prop="Oprice" label="手机号码" width="200"></el-table-column>
+          <el-table-column prop="can" label="学员数" width="250"></el-table-column>
+          <el-table-column prop="Pprice" label="是否消费" width="120"></el-table-column>
+          <el-table-column label="操作" width="150">
+            <template slot-scope="scope">
+              <el-button @click="handleClick(scope.row)" type="text" size="small">查看</el-button>
+              <!-- 弹出层 -->
+              <el-dialog
+                title="家长信息"
+                :visible.sync="dialogVisible"
+                width="70%"
+                :before-close="handleClose"
+              >
+                <div class="clear">
+                  <div class="jzWidthCss">用户来源：{{ jiaZhangXinXi.id }}</div>
+                  <div class="jzWidthCss">用户昵称：{{ jiaZhangXinXi.Oprice }}</div>
+                </div>
+                <div class="clear">
+                  <div class="jzWidthCss">性    别：{{ jiaZhangXinXi.grade }}</div>
+                  <div class="jzWidthCss">获取时间：{{ time }}</div>
+                </div>
+                <div class="clear">
+                  <div class="jzWidthCss">用户注册：{{ jiaZhangXinXi.name }}</div>
+                  <div class="jzWidthCss">手机号码：{{ jiaZhangXinXi.Pprice }}</div>
+                </div>
+                <div class="clear">
+                  <div class="jzWidthCss">注册时间：{{ time }}</div>
+                </div>
+                <div class="clear">
+                  <div class="jzWidthCss">学员数量：{{ jiaZhangXinXi.name }}</div>
+                  <div class="jzWidthCss">学员姓名：{{ jiaZhangXinXi.Pprice }}</div>
+                </div>
+                <div class="clear">
+                  <div class="jzWidthCss">获取时间：{{ jiaZhangXinXi.xiaoQ }}</div>
+                </div>
+                <span slot="footer" class="dialog-footer">
+                  <el-button type="primary" @click="dialogVisible = false">关 闭</el-button>
+                </span>
+              </el-dialog>
+            </template>
+          </el-table-column>
+        </el-table>
+        <el-pagination
+          background
+          @size-change="handleSizeChange"
+          @current-change="handleCurrentChange"
+          :current-page="currentPage"
+          :page-sizes="[1, 3, 5, 8]"
+          :page-size="pageSize"
+          layout="prev, pager, next, jumper"
+          :total="1000"
+        ></el-pagination>
+      </div>
+    </div>
+  </div>
+</template>
+
+
+
+<script>
+import top from "../Top";
+import { mapState } from "vuex";
+export default {
+  name: "JiaZhangTab",
+  data() {
+    return {
+      currentPage: 1, //默认显示第一页
+      pageSize: 10, //默认每页显示10条
+      totalNum: 5, //总页数
+      formInline: {
+        user: "",
+        region: "",
+        content: ""
+      },
+      dataContent: this.wfbSelectJson,
+      dialogVisible: false,
+      jiaZhangXinXi: {},
+      time: new Date().toLocaleString()
+    };
+  },
+  components: {
+    top
+  },
+  methods: {
+    tableRowClassName({ row, rowIndex }) {
+      if (rowIndex % 2 == 1) {
+        return "warning-row";
+      } else {
+        return "success-row";
+      }
+    },
+    tableHeaderColor({ row, column, rowIndex, columnIndex }) {
+      if (rowIndex === 0) {
+        return "background-color: #d7d7d7;color: black;font-weight:200;font-size:13px;text-align:left;height:30px;";
+      } else {
+        return "height:100px;";
+      }
+    },
+    handleSizeChange(val) {
+      console.log(`每页 ${val} 条`);
+      this.pageSize = val; //动态改变
+    },
+    handleCurrentChange(val) {
+      console.log(`当前页: ${val}`);
+      this.currentPage = val; //动态改变
+    },
+    onSubmit() {
+      // for
+      console.log(this.dataContent);
+    },
+    handleClick(s) {
+      console.log(s);
+      this.jiaZhangXinXi = s;
+      this.dialogVisible = true;
+    },
+    handleClose(done) {
+      this.$confirm("确认关闭？")
+        .then(_ => {
+          done();
+        })
+        .catch(_ => {});
+    }
+  },
+  computed: {
+    ...mapState(["wfbSelectJson"])
+  },
+  created() {
+    this.totalNum = this.wfbSelectJson.length;
+  }
+};
+</script>
+
+<style>
+.el-table .warning-row {
+  background: #f2f2f2;
+}
+
+.el-table .success-row {
+  background: white;
+}
+.el-table td {
+  padding: 7px 0 !important;
+}
+.jzWidthCss {
+  width: 50%;
+  float: left;
+  font-size: 13px;
+  line-height: 30px;
+  padding-left: 10%;
+  margin: 10px 0;
+  
+}
+</style>

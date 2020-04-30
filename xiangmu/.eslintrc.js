@@ -13,7 +13,7 @@ module.exports = {
 	rules: {
 		'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
 		'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-		'no-console': 'off',
+		'no-unused-vars': 'off',
 		'no-mixed-spaces-and-tabs': 'warn',
 		'vue/no-parsing-error': [2, {
 			"x-invalid-end-tag": false

@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+<<<<<<< HEAD
 import lunboRoter from '../views/轮播图管理/lunbo.vue'
 Vue.use(VueRouter)
 
@@ -72,6 +73,49 @@ const routes = [{
 		component: lunboRoter
 	},
 ]
+=======
+import Course from '../views/Course'
+
+
+Vue.use(VueRouter)
+
+const routes = [
+  {
+    path: '/fb',
+    component: () => import('../components/JiaZhang/JiaZhangTab')
+  },
+  {
+    path: '/',
+    component: Course,
+    children: [
+      {
+        path: '/sel',
+        component: () => import('../components/WFD/WFDSelect')
+      },
+      {
+        path: '',
+        redirect: '/sel'
+      },
+      {
+        path: '/manage',
+        component: () => import('../components/WFD/WFDManage')
+      }
+    ]
+  }, {
+    path: '/Pay',
+    component: () => import('../views/Pay'),
+    children: [
+      {
+        path: '',
+        redirect: '/sel2'
+      },
+      {
+        path: '/sel2',
+        component: () => import('../components/WFD/WFDManage')
+      }
+    ]
+  }]
+>>>>>>> a42769b419eac9af012ce83bf16de44f9712d82e
 
 
 const router = new VueRouter({

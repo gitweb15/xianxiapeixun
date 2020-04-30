@@ -1,7 +1,13 @@
 <template>
+<<<<<<< HEAD
 	<keep-alive>
 		<router-view></router-view>
 	</keep-alive>
+=======
+  <div id="app">
+    <router-view/>
+  </div>
+>>>>>>> a42769b419eac9af012ce83bf16de44f9712d82e
 </template>
 
 <style lang="scss">
